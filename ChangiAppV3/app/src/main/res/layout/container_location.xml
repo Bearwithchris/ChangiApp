@@ -57,5 +57,27 @@
         android:layout_below="@id/textSize"
         android:layout_toRightOf="@id/ivLocation"
         android:textColor="#666"/>
+    <Button
+        android:id="@+id/Find"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textType"
+        android:text="Find"
+    />
+
+    <Button
+        android:id="@+id/Add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignBaseline="@+id/Find"
+        android:layout_alignBottom="@+id/Find"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+
+        android:layout_toEndOf="@+id/Find"
+        android:layout_toRightOf="@+id/Find"
+        android:text="AddToList"/>
+
 
 </RelativeLayout>

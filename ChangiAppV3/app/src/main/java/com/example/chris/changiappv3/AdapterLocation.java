@@ -3,13 +3,19 @@ package com.example.chris.changiappv3;
 /**
  * Created by chris on 25/11/2017.
  */
+        import android.content.ContentValues;
         import android.content.Context;
+        import android.content.Intent;
+        import android.database.Cursor;
+        import android.database.sqlite.SQLiteDatabase;
+        import android.net.Uri;
         import android.support.v4.content.ContextCompat;
         import android.support.v7.widget.RecyclerView;
         import android.util.Log;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
+        import android.widget.Button;
         import android.widget.ImageView;
         import android.widget.RelativeLayout;
         import android.widget.TextView;
@@ -27,11 +33,19 @@ public class AdapterLocation extends RecyclerView.Adapter<RecyclerView.ViewHolde
     DataLocation current;
     int currentPos=0;
 
+
+    public LocationDbHelper locationDbHelper;
+    public SQLiteDatabase locationDb;
+
+
     // create constructor to innitilize context and data sent from MainActivity
     public AdapterLocation(Context context, List<DataLocation> data){
         this.context=context;
         inflater= LayoutInflater.from(context);
         this.data=data;
+
+        locationDbHelper=new LocationDbHelper(context);
+        locationDb=locationDbHelper.getWritableDatabase();
     }
 
     // Inflate the layout when viewholder created
@@ -39,6 +53,8 @@ public class AdapterLocation extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view=inflater.inflate(R.layout.container_location, parent,false);
         MyHolder holder=new MyHolder(view);
+
+
         return holder;
     }
 
@@ -66,14 +82,40 @@ public class AdapterLocation extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 .into(myHolder.ivLocation);
 
         final String name=current.loationName;
-        ((MyHolder) holder).relativeLayout.setOnClickListener(new View.OnClickListener() {
+        final int amount=current.price;
+        ((MyHolder) holder).find.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Toast.makeText(context, " you clicked " + name,Toast.LENGTH_SHORT).show();
+               //Toast.makeText(context, " you clicked " + name,Toast.LENGTH_SHORT).show();
+                Uri.Builder builder = new Uri.Builder();
+                //In the builder class, the respective function are cascaded to form a modified instance
+                builder.scheme("geo").opaquePart("0,0").appendQueryParameter("q",name);
+                //returns the modified instance of URI
+                Uri geoLocation = builder.build();
+
+                //TO DO 1.3 - write the intent
+                Intent mapIntent=new Intent(Intent.ACTION_VIEW,geoLocation);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                context.startActivity(mapIntent);
+
+            }
+        });
+
+        ((MyHolder) holder).add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ContentValues cv=new ContentValues(); //just to store key value pair
+                cv.put(LocationsContract.LocationEntry.COL_AMOUNT,amount); //"Spending amount" , amoutEntered
+                cv.put(LocationsContract.LocationEntry.COL_LOCATIONNAME ,name);//"Remarks" , remarksEntered
+                locationDb.insert(LocationsContract.LocationEntry.TABLE_NAME,null,cv);
+            Toast.makeText(context,name+" has been added to your plans",Toast.LENGTH_SHORT).show();
             }
         });
 
     }
+
+
+
 
     // return total item from List
     @Override
@@ -90,6 +132,8 @@ public class AdapterLocation extends RecyclerView.Adapter<RecyclerView.ViewHolde
         TextView textType;
         TextView textPrice;
         RelativeLayout relativeLayout;
+        Button find;
+        Button add;
 
         // create constructor to get widget reference
         public MyHolder(View itemView) {
@@ -100,6 +144,8 @@ public class AdapterLocation extends RecyclerView.Adapter<RecyclerView.ViewHolde
             textType = (TextView) itemView.findViewById(R.id.textType);
             textPrice = (TextView) itemView.findViewById(R.id.locationPrice);
             relativeLayout=(RelativeLayout) itemView.findViewById(R.id.relativeLayout);
+            find=(Button) itemView.findViewById(R.id.Find);
+            add=(Button) itemView.findViewById(R.id.Add);
         }
 
     }

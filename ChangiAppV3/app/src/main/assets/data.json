@@ -2,7 +2,7 @@
   {"img":"2.jpg","location_name":"Changi Village","cat_name":"Eating","rating":"8/10","price":"0"},
   {"img":"3.jpg","location_name":"Orchard Road","cat_name":"Shopping","rating":"9/10","price":"0"},
   {"img":"4.jpg","location_name":"Clarke Quay","cat_name":"Eating","rating":"7/10","price":"0"},
-  {"img":"gardensbythebay.jpg","location_name":"Gardens by the bay","cat_name":"Attractions","rating":"10/10","price":"50"},
+  {"img":"gardensbythebay","location_name":"Gardens by the bay","cat_name":"Attractions","rating":"10/10","price":"50"},
   {"img":"universalstudios.jpg","location_name":"Universal studios","cat_name":"Attractions","rating":"9/10","price":"70"},
   {"img":"7.jpg","location_name":"Sentosa","cat_name":"Attractions","rating":"7/10","price":"0"},
   {"img":"8.jpg","location_name":"Esplanade","cat_name":"Attractions","rating":"6/10","price":"0"},
