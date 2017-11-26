@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRVLocations; //mRVFishPrice
     private AdapterLocation mAdapter; //mAdapter
 
-//    Button planner;
+    Button planner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,16 +41,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-//        planner=planner.findViewById(R.id.dayplanner);
+        planner=findViewById(R.id.dayplanner);
 
-//        planner.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////                Intent intent=new Intent(MainActivity.this , dayplanner.class);
-////                startActivity(intent);
-//
-//            }
-//        });
+        planner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this , dayplanner.class);
+                startActivity(intent);
+
+            }
+        });
         //Make call to AsyncTask
         new AsyncFetch().execute();
     }

@@ -115,9 +115,11 @@ public class AdapterLocation extends RecyclerView.Adapter<RecyclerView.ViewHolde
         ((MyHolder) holder).remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //String delete="DELETE FROM "+LocationsContract.LocationEntry.TABLE_NAME+" WHERE "+LocationsContract.LocationEntry.COL_LOCATIONNAME
-                //        +" = "+name;
-               // locationDb.execSQL(delete);
+
+                String delete="DELETE FROM "+LocationsContract.LocationEntry.TABLE_NAME+" WHERE "+LocationsContract.LocationEntry.COL_LOCATIONNAME
+                        +" = "+name;
+                locationDb.execSQL(delete);
+               // locationDb.delete(LocationsContract.LocationEntry.TABLE_NAME, LocationsContract.LocationEntry.COL_LOCATIONNAME+"="+name,null);
                 Toast.makeText(context,name+" has been deleted your plans",Toast.LENGTH_SHORT).show();
             }
         });
