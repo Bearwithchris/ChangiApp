@@ -72,12 +72,20 @@
 
         android:layout_alignBaseline="@+id/Find"
         android:layout_alignBottom="@+id/Find"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
 
         android:layout_toEndOf="@+id/Find"
         android:layout_toRightOf="@+id/Find"
-        android:text="AddToList"/>
+        android:text="Add" />
+
+    <Button
+        android:id="@+id/Remove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/Add"
+        android:layout_alignBottom="@+id/Add"
+        android:layout_toEndOf="@+id/Add"
+        android:layout_toRightOf="@+id/Add"
+        android:text="Remove" />
 
 
 </RelativeLayout>

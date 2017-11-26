@@ -35,13 +35,12 @@ public class MainActivity extends AppCompatActivity {
 
 //    Button planner;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       LocationDbHelper locationDbHelper=new LocationDbHelper(this);
+
 //        planner=planner.findViewById(R.id.dayplanner);
 
 //        planner.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         //Make call to AsyncTask
         new AsyncFetch().execute();
     }
+
+
 
 
     protected void dp(View view){

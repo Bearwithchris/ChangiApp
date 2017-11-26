@@ -66,7 +66,7 @@ public class AdapterLocation extends RecyclerView.Adapter<RecyclerView.ViewHolde
         MyHolder myHolder= (MyHolder) holder;
         final DataLocation current=data.get(position);
         myHolder.textLocationName.setText(current.loationName);
-        myHolder.Locationtype.setText("Size: " + current.ratings);
+        myHolder.Locationtype.setText("Rating: " + current.ratings);
         myHolder.textType.setText("Category: " + current.catName);
         myHolder.textPrice.setText("Price" + current.price);
         myHolder.textPrice.setTextColor(ContextCompat.getColor(context, R.color.colorAccent));
@@ -112,6 +112,15 @@ public class AdapterLocation extends RecyclerView.Adapter<RecyclerView.ViewHolde
             }
         });
 
+        ((MyHolder) holder).remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //String delete="DELETE FROM "+LocationsContract.LocationEntry.TABLE_NAME+" WHERE "+LocationsContract.LocationEntry.COL_LOCATIONNAME
+                //        +" = "+name;
+               // locationDb.execSQL(delete);
+                Toast.makeText(context,name+" has been deleted your plans",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
@@ -134,6 +143,7 @@ public class AdapterLocation extends RecyclerView.Adapter<RecyclerView.ViewHolde
         RelativeLayout relativeLayout;
         Button find;
         Button add;
+        Button remove;
 
         // create constructor to get widget reference
         public MyHolder(View itemView) {
@@ -146,6 +156,8 @@ public class AdapterLocation extends RecyclerView.Adapter<RecyclerView.ViewHolde
             relativeLayout=(RelativeLayout) itemView.findViewById(R.id.relativeLayout);
             find=(Button) itemView.findViewById(R.id.Find);
             add=(Button) itemView.findViewById(R.id.Add);
+            remove=(Button) itemView.findViewById(R.id.Remove);
+
         }
 
     }
