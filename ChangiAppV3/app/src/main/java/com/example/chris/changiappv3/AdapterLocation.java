@@ -8,6 +8,7 @@ package com.example.chris.changiappv3;
         import android.content.Intent;
         import android.database.Cursor;
         import android.database.sqlite.SQLiteDatabase;
+        import android.graphics.drawable.Drawable;
         import android.net.Uri;
         import android.support.v4.content.ContextCompat;
         import android.support.v7.widget.RecyclerView;
@@ -68,21 +69,23 @@ public class AdapterLocation extends RecyclerView.Adapter<RecyclerView.ViewHolde
         myHolder.textLocationName.setText(current.loationName);
         myHolder.Locationtype.setText("Rating: " + current.ratings);
         myHolder.textType.setText("Category: " + current.catName);
-        myHolder.textPrice.setText("Price" + current.price);
+        myHolder.textPrice.setText("Price: $" + current.price);
         myHolder.textPrice.setTextColor(ContextCompat.getColor(context, R.color.colorAccent));
 
         // load image into imageview using glide
         //Glide.with(context).load("http://192.168.1.7/test/images/" + current.fishImage)
         Log.i("image",current.loationImage);
-        Glide.with(context).load(current.loationImage)
-              //  .placeholder(R.drawable.ic_img_error)
-               // .error(R.drawable.ic_img_error)
-                .placeholder(R.drawable.ic_launcher_background)
-                .error(R.drawable.ic_launcher_background)
-                .into(myHolder.ivLocation);
+//        Glide.with(context).load(current.loationImage)
+//              //  .placeholder(R.drawable.ic_img_error)
+//               // .error(R.drawable.ic_img_error)
+//                .placeholder(R.drawable.ic_launcher_background)
+//                .error(R.drawable.ic_launcher_background)
+//                .into(myHolder.ivLocation);
 
         final String name=current.loationName;
         final int amount=current.price;
+        int id = context.getResources().getIdentifier(current.loationImage, "drawable", context.getPackageName());
+        myHolder.ivLocation.setImageResource(id);
         ((MyHolder) holder).find.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
