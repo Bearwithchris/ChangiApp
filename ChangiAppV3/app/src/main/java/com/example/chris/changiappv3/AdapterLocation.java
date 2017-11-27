@@ -107,20 +107,26 @@ public class AdapterLocation extends RecyclerView.Adapter<RecyclerView.ViewHolde
         ((MyHolder) holder).add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+               // String put="INSERT INTO "+LocationsContract.LocationEntry.TABLE_NAME+" VALUES ("+amount+
+               //         " , "+name+");";
                 ContentValues cv=new ContentValues(); //just to store key value pair
                 cv.put(LocationsContract.LocationEntry.COL_AMOUNT,amount); //"Spending amount" , amoutEntered
                 cv.put(LocationsContract.LocationEntry.COL_LOCATIONNAME ,name);//"Remarks" , remarksEntered
                 locationDb.insert(LocationsContract.LocationEntry.TABLE_NAME,null,cv);
+        //        locationDb.execSQL(put);
             Toast.makeText(context,name+" has been added to your plans",Toast.LENGTH_SHORT).show();
             }
         });
 
         ((MyHolder) holder).remove.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View view) {
 
-                String delete="DELETE FROM "+LocationsContract.LocationEntry.TABLE_NAME+" WHERE "+LocationsContract.LocationEntry.COL_LOCATIONNAME
-                        +" = "+name;
+                String delete="DELETE FROM "+LocationsContract.LocationEntry.TABLE_NAME+" WHERE "
+                        +LocationsContract.LocationEntry.COL_LOCATIONNAME
+                        +" = '"+name+"'";
+                System.out.println(delete);
                 locationDb.execSQL(delete);
                // locationDb.delete(LocationsContract.LocationEntry.TABLE_NAME, LocationsContract.LocationEntry.COL_LOCATIONNAME+"="+name,null);
                 Toast.makeText(context,name+" has been deleted your plans",Toast.LENGTH_SHORT).show();

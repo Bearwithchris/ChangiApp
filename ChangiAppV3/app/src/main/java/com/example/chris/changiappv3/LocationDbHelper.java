@@ -29,7 +29,7 @@ public class LocationDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         final String SQL_CREATE_TABLE = "CREATE TABLE " + //
                 LocationsContract.LocationEntry.TABLE_NAME + "("
-                + LocationsContract.LocationEntry._ID + " INTEGER PRIMARY KEY ,"
+                + LocationsContract.LocationEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + LocationsContract.LocationEntry.COL_AMOUNT + " TEXT NOT NULL ,"
                 + LocationsContract.LocationEntry.COL_LOCATIONNAME + " TEXT NOT NULL );";
 
