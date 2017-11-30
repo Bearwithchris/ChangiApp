@@ -4,14 +4,19 @@ package com.example.chris.changiappv3;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -27,14 +32,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
 
     private RecyclerView mRVLocations; //mRVFishPrice
     private AdapterLocation mAdapter; //mAdapter
 
     Button planner;
-
+    SharedPreferences sharedPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,11 +48,23 @@ public class MainActivity extends AppCompatActivity {
 
         planner=findViewById(R.id.dayplanner);
 
+
+        sharedPref= PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPref.registerOnSharedPreferenceChangeListener(this);
+
+
+        //1st argument: using this key, get the value stored in sharedPreferences
+        //2nd argument: if there is no value stored, then the default value is false
+        final boolean bf = sharedPref.getBoolean("bigfont",false);
+
+        bigfont(bf);
+
         planner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this , dayplanner.class);
-                startActivity(intent);
+
+                    Intent intent = new Intent(MainActivity.this, dayplanner.class);
+                    startActivity(intent);
 
             }
         });
@@ -55,7 +72,23 @@ public class MainActivity extends AppCompatActivity {
         new AsyncFetch().execute();
     }
 
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 
+        if (key.equals("fastsearch")){
+
+            //same code as above
+            boolean checked = sharedPreferences.getBoolean(key,false);
+
+            //REMINDER - write code for this method
+            bigfont(checked);
+
+        }
+    }
+
+    public void bigfont(boolean status){
+
+    }
 
 
     protected void dp(View view){
@@ -63,6 +96,25 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //Menu========================================================================================
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        //This intent triggers the Second Activity upon the selection of Settings
+        if(id == R.id.settings){
+            //code for the intent goes here
+            Intent intent=new Intent(this,Settings_Activity.class);
+            startActivity(intent);
+            return true;
+        }
+        return true;
+    }
 
     private class AsyncFetch extends AsyncTask<String, String, String> {
         ProgressDialog pdLoading = new ProgressDialog(MainActivity.this);
@@ -139,6 +191,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
+
 
     }
 }

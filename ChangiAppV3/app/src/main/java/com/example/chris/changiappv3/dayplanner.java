@@ -77,11 +77,11 @@ public class dayplanner  extends FragmentActivity implements OnMapReadyCallback 
         int indexAmount=cursor.getColumnIndex(LocationsContract.LocationEntry.COL_AMOUNT);
         int counter=0;
         while(cursor.moveToNext()){
-            String myAmount = cursor.getString(indexRemarks);
-            String location = cursor.getString(indexAmount);
+            String myAmount = cursor.getString(indexAmount);
+            String location = cursor.getString(indexRemarks);
 //            addRg(location,counter,Integer.parseInt(myAmount));
 //            counter+=1;
-            outstring=outstring+location+" "+myAmount+"\n";
+            outstring=outstring+location+" $"+myAmount+"\n";
         }
 
         testview.setText(outstring);
@@ -89,6 +89,7 @@ public class dayplanner  extends FragmentActivity implements OnMapReadyCallback 
 
     public void removeEntireDb(View view){
         locationDb.delete(LocationsContract.LocationEntry.TABLE_NAME,null,null);
+        onClickGetEntireDb(view);
     }
 
     @Override
