@@ -85,6 +85,9 @@ public class AdapterLocation extends RecyclerView.Adapter<RecyclerView.ViewHolde
         final String name=current.loationName;
         final int amount=current.price;
         int id = context.getResources().getIdentifier(current.loationImage, "drawable", context.getPackageName());
+
+
+
         myHolder.ivLocation.setImageResource(id);
         ((MyHolder) holder).find.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,6 +135,7 @@ public class AdapterLocation extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 Toast.makeText(context,name+" has been deleted your plans",Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
 
