@@ -40,12 +40,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     Button planner;
     SharedPreferences sharedPref;
+    ArrayList<String> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        list=new ArrayList<>();
+        list.clear();
         planner=findViewById(R.id.dayplanner);
 
 
@@ -55,9 +57,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         //1st argument: using this key, get the value stored in sharedPreferences
         //2nd argument: if there is no value stored, then the default value is false
-        final boolean bf = sharedPref.getBoolean("bigfont",false);
+        final boolean attractions = sharedPref.getBoolean("attactions",true);
+        final boolean eating= sharedPref.getBoolean("eating",true);
+        final boolean shopping = sharedPref.getBoolean("shopping",true);
 
-        bigfont(bf);
+        Attractions(attractions);
+        Eating(eating);
+        Shopping(shopping);
 
         planner.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,19 +81,53 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 
-        if (key.equals("fastsearch")){
+        if (key.equals("attractions")){
+            boolean attractions = sharedPref.getBoolean("attractions",false);
+            Attractions(attractions);
+        }
+        if (key.equals("shopping")){
+            boolean shopping = sharedPref.getBoolean("shopping",false);
+            Shopping(shopping);
+        }
+        if (key.equals("eating")){
+            boolean eating= sharedPref.getBoolean("eating",false);
+            Eating(eating);
+        }
+        for(String i:list){
+            System.out.println(i);
+        }
+        new AsyncFetch().execute();
+        System.out.println("onSharedPreferenceChanged");
+    }
 
-            //same code as above
-            boolean checked = sharedPreferences.getBoolean(key,false);
+    public void Attractions(boolean status){
+    if(status){
+        list.add("Attractions");
+    }
+    else{
+        if(list.contains("Attractions")){
+            list.remove("Attractions");}
+    }
+    }
 
-            //REMINDER - write code for this method
-            bigfont(checked);
-
+    public void Eating(boolean status){
+        if(status){
+            list.add("Eating");
+        }
+        else{
+            if(list.contains("Eating")){
+                list.remove("Eating");}
         }
     }
 
-    public void bigfont(boolean status){
-
+    public void Shopping(boolean status){
+        if(status){
+            list.add("Shopping");
+        }
+        else{
+            if(list.contains("Shopping")){
+                list.remove("Shopping");}
+        }
     }
 
 
@@ -177,7 +217,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     Data.catName= json_data.getString("cat_name");
                     Data.ratings= json_data.getString("rating");
                     Data.price= json_data.getInt("price");
-                    data.add(Data);
+                    if(list.contains(Data.catName)) {
+                        data.add(Data);
+                    }
                 }
 
                 // Setup and Handover data to recyclerview
