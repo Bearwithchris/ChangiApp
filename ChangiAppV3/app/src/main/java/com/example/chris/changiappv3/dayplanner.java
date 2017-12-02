@@ -67,11 +67,12 @@ public class dayplanner  extends FragmentActivity implements OnMapReadyCallback 
         budget=intentExtras.getFloatExtra("budget",20);
         System.out.println(budget);
 
+        onClickGetEntireDb();
 
 
     }
 
-    public void onClickGetEntireDb(View view){
+    public void onClickGetEntireDb(){
 
         //TO DO 3.7 Call the query or rawQuery method of the spendingDb object and store the result in a Cursor object
         final String SQL_QUERY_TABLE="SELECT * FROM "+LocationsContract.LocationEntry.TABLE_NAME;
@@ -96,7 +97,7 @@ public class dayplanner  extends FragmentActivity implements OnMapReadyCallback 
 
     public void removeEntireDb(View view){
         locationDb.delete(LocationsContract.LocationEntry.TABLE_NAME,null,null);
-        onClickGetEntireDb(view);
+        onClickGetEntireDb();
     }
 
     @Override
