@@ -1,6 +1,7 @@
 package com.example.chris.changiappv3;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Address;
@@ -42,6 +43,8 @@ public class dayplanner  extends FragmentActivity implements OnMapReadyCallback 
     private GoogleMap mMap;
     private Marker marker;
     Context context;
+    boolean algo;
+    float budget;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +62,10 @@ public class dayplanner  extends FragmentActivity implements OnMapReadyCallback 
         MapsSearch=findViewById(R.id.search);
         navigate=findViewById(R.id.NavigateButton);
 
+        Intent intentExtras=getIntent();
+        algo=intentExtras.getBooleanExtra("algo",false);
+        budget=intentExtras.getFloatExtra("budget",20);
+        System.out.println(budget);
 
 
 

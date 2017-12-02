@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     Button planner;
     SharedPreferences sharedPref;
     ArrayList<String> list;
+    boolean algo;
+    Float budget;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         final boolean attractions = sharedPref.getBoolean("attactions",true);
         final boolean eating= sharedPref.getBoolean("eating",true);
         final boolean shopping = sharedPref.getBoolean("shopping",true);
+        algo=sharedPref.getBoolean("algo",true);
+        budget=Float.parseFloat(sharedPref.getString("budget","20"));
 
         Attractions(attractions);
         Eating(eating);
@@ -70,6 +74,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             public void onClick(View view) {
 
                     Intent intent = new Intent(MainActivity.this, dayplanner.class);
+                    intent.putExtra("algo",algo);
+                    intent.putExtra("budget",budget);
                     startActivity(intent);
 
             }
@@ -81,6 +87,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 
+        if(key.equals("algo")){
+            algo=sharedPref.getBoolean("algo",true);
+        }
+        if(key.equals("budget")){
+            budget=Float.parseFloat(sharedPref.getString("budget","20"));
+        }
         if (key.equals("attractions")){
             boolean attractions = sharedPref.getBoolean("attractions",false);
             Attractions(attractions);
