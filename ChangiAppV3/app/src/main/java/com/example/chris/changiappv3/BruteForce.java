@@ -1,13 +1,13 @@
-package com.example.lib01;
+package com.example.chris.changiappv3;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-import static com.example.lib01.Data.costArray;
-import static com.example.lib01.Data.locations2;
-import static com.example.lib01.Data.timeArray;
-import static com.example.lib01.Data.transportMode;
+import static com.example.chris.changiappv3.Data.costArray;
+import static com.example.chris.changiappv3.Data.locations2;
+import static com.example.chris.changiappv3.Data.timeArray;
+import static com.example.chris.changiappv3.Data.transportMode;
 
 /**
  * Created by Jingxuan on 3/12/2017.
