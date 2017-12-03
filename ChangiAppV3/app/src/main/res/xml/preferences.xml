@@ -8,12 +8,12 @@
         android:summaryOn="Filtered in"
         android:title="Attractions" />
     <CheckBoxPreference
-        android:id="@+id/eating"
+        android:id="@+id/lodging"
         android:defaultValue="true"
-        android:key="eating"
+        android:key="lodging"
         android:summaryOff="Filtered out"
         android:summaryOn="Filtered in"
-        android:title="Eating places" />
+        android:title="Lodging" />
     <CheckBoxPreference
         android:id="@+id/shopping"
         android:defaultValue="true"

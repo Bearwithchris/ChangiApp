@@ -60,13 +60,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         //1st argument: using this key, get the value stored in sharedPreferences
         //2nd argument: if there is no value stored, then the default value is false
         final boolean attractions = sharedPref.getBoolean("attactions",true);
-        final boolean eating= sharedPref.getBoolean("eating",true);
+        final boolean lodging= sharedPref.getBoolean("lodging",true);
         final boolean shopping = sharedPref.getBoolean("shopping",true);
         algo=sharedPref.getBoolean("algo",true);
         budget=Float.parseFloat(sharedPref.getString("budget","20"));
 
         Attractions(attractions);
-        Eating(eating);
+        lodging(lodging);
         Shopping(shopping);
 
         planner.setOnClickListener(new View.OnClickListener() {
@@ -101,9 +101,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             boolean shopping = sharedPref.getBoolean("shopping",false);
             Shopping(shopping);
         }
-        if (key.equals("eating")){
-            boolean eating= sharedPref.getBoolean("eating",false);
-            Eating(eating);
+        if (key.equals("lodging")){
+            boolean eating= sharedPref.getBoolean("lodging",false);
+            lodging(eating);
         }
         for(String i:list){
             System.out.println(i);
@@ -122,13 +122,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
     }
 
-    public void Eating(boolean status){
+    public void lodging(boolean status){
         if(status){
-            list.add("Eating");
+            list.add("lodging");
         }
         else{
-            if(list.contains("Eating")){
-                list.remove("Eating");}
+            if(list.contains("lodging")){
+                list.remove("lodging");}
         }
     }
 

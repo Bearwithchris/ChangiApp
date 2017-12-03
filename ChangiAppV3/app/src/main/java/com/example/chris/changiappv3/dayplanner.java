@@ -27,6 +27,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -45,12 +46,14 @@ public class dayplanner  extends FragmentActivity implements OnMapReadyCallback 
     Context context;
     boolean algo;
     float budget;
+    ArrayList<Integer> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dayplanner);
         context=this;
 
+        list=new ArrayList<>();
         locationDbHelper=new LocationDbHelper(this);
         locationDb=locationDbHelper.getWritableDatabase();
         testview=findViewById(R.id.test);
@@ -89,10 +92,13 @@ public class dayplanner  extends FragmentActivity implements OnMapReadyCallback 
             String location = cursor.getString(indexRemarks);
 //            addRg(location,counter,Integer.parseInt(myAmount));
 //            counter+=1;
+            System.out.println(location);
+            convert(location);
             outstring=outstring+location+" $"+myAmount+"\n";
         }
 
         testview.setText(outstring);
+        print();
     }
 
     public void removeEntireDb(View view){
@@ -146,4 +152,46 @@ public class dayplanner  extends FragmentActivity implements OnMapReadyCallback 
 //        RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT, RadioGroup.LayoutParams.WRAP_CONTENT);
 //        rg.addView(radioButton, params);
 //    }
+    public void convert(String location){
+        System.out.println(location);
+        if(location.equals("Marina bay sands")){
+            list.add(0);
+        }
+        else if(location.equals("Singapore flyer")){
+            list.add(1);
+        }
+        else if(location.equals("vivo city")){
+            list.add(2);
+        }
+        else if(location.equals("Universal studios")){
+            list.add(3);
+        }
+        else if(location.equals("Buddha tooth relic temple")){
+            list.add(4);
+        }
+        else if(location.equals("Singapore Zoo")){
+            list.add(5);
+        }
+        else if(location.equals("Orchard Road")){
+            list.add(6);
+        }
+        else if(location.equals("Jurong bird park")){
+            list.add(7);
+        }
+        else if(location.equals("Singapore Botanic Garden")){
+            list.add(8);
+        }
+        else if(location.equals("SUTD")){
+            list.add(9);
+        }
+
+
+    }
+    public void print(){
+        for(int i:list){
+            System.out.println(i);
+        }
+        System.out.println("Triggered");
+    }
 }
+

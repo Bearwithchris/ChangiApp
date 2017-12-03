@@ -1,12 +1,12 @@
 [{"img":"sutd","location_name":"SUTD","cat_name":"Attractions","rating":"10/10","price":"0"},
   {"img":"orchardroad","location_name":"Orchard Road","cat_name":"Shopping","rating":"9/10","price":"0"},
-  {"img":"clarkequay","location_name":"Clarke Quay","cat_name":"Eating","rating":"7/10","price":"0"},
+  {"img":"MBS","location_name":"Marina bay sands","cat_name":"lodging","rating":"10/10","price":"200"},
   {"img":"universalstudios","location_name":"Universal studios","cat_name":"Attractions","rating":"9/10","price":"70"},
-  {"img":"sentosa","location_name":"Sentosa","cat_name":"Attractions","rating":"7/10","price":"0"},
+  {"img":"vivo city","location_name":"vivo city","cat_name":"Attractions","rating":"8/10","price":"0"},
   {"img":"singaporezoo","location_name":"Singapore Zoo","cat_name":"Attractions","rating":"7/10","price":"30"},
   {"img":"singaporeflyer","location_name":"Singapore flyer","cat_name":"Attractions","rating":"5/10","price":"40"},
-  {"img":"merlionpark","location_name":"Merlion park","cat_name":"Attractions","rating":"6/10","price":"0"},
   {"img":"singaporebotanicgarden","location_name":"Singapore Botanic Garden","cat_name":"Attractions","rating":"7/10","price":"0"},
   {"img":"jurongbirdpark","location_name":"Jurong bird park","cat_name":"Attractions","rating":"7/10","price":"30"},
   {"img":"buddhatoothtemple","location_name":"Buddha tooth relic temple","cat_name":"Attractions","rating":"8/10","price":"20"}]
+
 
