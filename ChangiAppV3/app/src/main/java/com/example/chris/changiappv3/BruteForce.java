@@ -1,9 +1,10 @@
 package com.example.chris.changiappv3;
 
+import com.example.chris.changiappv3.Data;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-
 
 
 /**
@@ -104,12 +105,15 @@ public class BruteForce {
                     String startPoint = Data.locations2.get(start1);
                     String point1 = Data.locations2.get(attraction1);
                     String point2 = Data.locations2.get(attraction2);
-                    String trip = (startPoint + "to "+ point1 + ": "+ mode1 + "\n"
-                            + point1 +"to " + point2 + ": "+ mode2 + "\n");
-
+                    String trip = (startPoint + " to "+ point1 + ": "+ mode1 + "\n"
+                            + point1 +" to " + point2 + ": "+ mode2 + "\n");
                     double totalCost = pathCost1 + pathCost2;
 
                     int totalTime = pathTime1 + pathTime2;
+
+                    String appPrint = ("Total Time: " + totalTime + "mins, Total Cost: $" + totalCost + "\n"
+                            + startPoint + " to " + point1 + ": " + mode1 + ", " + pathTime1 + " mins, $" + pathCost1 +  "\n"
+                            + point1 + " to " + point2 + ": " + mode2 + ", " + pathTime2 + " mins, $" + pathCost2 + "\n");
 
                     ArrayList<String> tripList = new ArrayList<>();
                     tripList.add(startPoint);
@@ -121,7 +125,7 @@ public class BruteForce {
                     timeAndCost.add("Mode: "+ mode2 + "\nTime: " + pathTime2 + " mins" + "\nCost: $" + pathCost2);
 
                     if (totalCost <= budget){
-                        TripObject tripObject = new TripObject(trip,totalTime,totalCost);
+                        TripObject tripObject = new TripObject(trip,totalTime,totalCost,appPrint);
                         tripObject.setTripList(tripList);
                         tripObject.setTimeAndCostList(timeAndCost);
                         costsList.add(tripObject);
@@ -172,12 +176,17 @@ public class BruteForce {
                         String point1 = Data.locations2.get(attraction1);
                         String point2 = Data.locations2.get(attraction2);
                         String point3 = Data.locations2.get(attraction3);
-                        String trip = (startPoint + "to " + point1 + ": "+ mode1 + "\n"
-                                + point1 + "to " + point2 + ": " + mode2 + "\n"
-                                + point2 + "to " + point3 + ": " + mode3 + "\n");
+                        String trip = (startPoint + " to " + point1 + ": "+ mode1 + "\n"
+                                + point1 + " to " + point2 + ": " + mode2 + "\n"
+                                + point2 + " to " + point3 + ": " + mode3 + "\n");
 
                         double totalCost = pathCost1 + pathCost2 + pathCost3;
                         int totalTime = pathTime1 + pathTime2 + pathTime3 ;
+
+                        String appPrint = ("Total Time: " + totalTime + "mins, Total Cost: $" + totalCost + "\n"
+                                + startPoint + " to "+ point1 + ": "+ mode1 + ", " + pathTime1 + " mins, $" + pathCost1 +  "\n"
+                                + point1 + " to " + point2 + ": " + mode2 + ", " + pathTime2 + " mins, $" + pathCost2 + "\n"
+                                + point2 + " to " + point3 + ": " + mode3 + ", " + pathTime3 + " mins, $" + pathCost3 + "\n");
 
                         ArrayList<String> tripList = new ArrayList<>();
                         tripList.add(startPoint);
@@ -191,7 +200,7 @@ public class BruteForce {
                         timeAndCost.add("Mode: " + mode3 + "\nTime: " + pathTime3 + " mins" + "\nCost: $" + pathCost3);
 
                         if(totalCost <= budget){
-                            TripObject tripObject = new TripObject(trip,totalTime,totalCost);
+                            TripObject tripObject = new TripObject(trip,totalTime,totalCost,appPrint);
                             tripObject.setTripList(tripList);
                             tripObject.setTimeAndCostList(timeAndCost);
                             costsList.add(tripObject);
@@ -260,13 +269,19 @@ public class BruteForce {
                             tripList.add(point3);
                             tripList.add(point4);
 
-                            String trip = (startPoint + "to " + point1 + ": "+ mode1 +"\n"
-                                    + point1 + "to " + point2 + ": " + mode2 + "\n"
-                                    + point2 + "to " + point3 + ": " + mode3 + "\n"
-                                    + point3 + "to " + point4 + ": " + mode4 + "\n" );
-                            double totalCost = pathCost1 + pathCost2 + pathCost3 + pathCost4;
+                            String trip = (startPoint + " to " + point1 + ": "+ mode1 +"\n"
+                                    + point1 + " to " + point2 + ": " + mode2 + "\n"
+                                    + point2 + " to " + point3 + ": " + mode3 + "\n"
+                                    + point3 + " to " + point4 + ": " + mode4 + "\n" );
 
+                            double totalCost = pathCost1 + pathCost2 + pathCost3 + pathCost4;
                             int totalTime = pathTime1 + pathTime2 + pathTime3 + pathTime4;
+
+                            String appPrint = ("Total Time: " + totalTime + "mins, Total Cost: $" + totalCost + "\n"
+                                    + startPoint + " to "+ point1 + ": "+ mode1 + ", " + pathTime1 + " mins, $" + pathCost1 +  "\n"
+                                    + point1 + " to " + point2 + ": " + mode2 + ", " + pathTime2 + " mins, $" + pathCost2 + "\n"
+                                    + point2 + " to " + point3 + ": " + mode3 + ", " + pathTime3 + " mins, $" + pathCost3 + "\n"
+                                    + point3 + " to " + point4 + ": " + mode4 + ", " + pathTime4 + " mins, $" + pathCost4 +"\n");
 
                             ArrayList<String> timeAndCost = new ArrayList<>();
                             timeAndCost.add("Mode: " + mode1 + "\nTime: " + pathTime1 + " mins" + "\nCost: $" + pathCost1);
@@ -276,7 +291,7 @@ public class BruteForce {
 
                             if (totalCost <= budget){
 
-                                TripObject tripObject = new TripObject(trip,totalTime,totalCost);
+                                TripObject tripObject = new TripObject(trip,totalTime,totalCost,appPrint);
                                 tripObject.setTripList(tripList);
                                 tripObject.setTimeAndCostList(timeAndCost);
                                 costsList.add(tripObject);
@@ -358,14 +373,21 @@ public class BruteForce {
                                 tripList.add(point4);
                                 tripList.add(point5);
 
-                                String trip = (startPoint + "to " + point1 + ": " + mode1 + "\n"
-                                        + point1 + "to " + point2 + ": " + mode2 + "\n"
-                                        + point2 + "to " + point3 + ": " + mode3 + "\n"
-                                        + point3 + "to " + point4 + ": " + mode4 + "\n"
-                                        + point4 + "to " + point5 + ": " + mode5 + "\n");
-                                double totalCost = pathCost1 + pathCost2 + pathCost3 + pathCost4 + pathCost5;
+                                String trip = (startPoint + " to " + point1 + ": " + mode1 + "\n"
+                                        + point1 + " to " + point2 + ": " + mode2 + "\n"
+                                        + point2 + " to " + point3 + ": " + mode3 + "\n"
+                                        + point3 + " to " + point4 + ": " + mode4 + "\n"
+                                        + point4 + " to " + point5 + ": " + mode5 + "\n");
 
+                                double totalCost = pathCost1 + pathCost2 + pathCost3 + pathCost4 + pathCost5;
                                 int totalTime = pathTime1 + pathTime2 + pathTime3 + pathTime4 + pathTime5;
+
+                                String appPrint = ("Total Time: " + totalTime + "mins, Total Cost: $" + totalCost + "\n"
+                                        + startPoint + " to "+ point1 + ": "+ mode1 + ", " + pathTime1 + " mins, $" + pathCost1 +  "\n"
+                                        + point1 + " to " + point2 + ": " + mode2 + ", " + pathTime2 + " mins, $" + pathCost2 + "\n"
+                                        + point2 + " to " + point3 + ": " + mode3 + ", " + pathTime3 + " mins, $" + pathCost3 + "\n"
+                                        + point3 + " to " + point4 + ": " + mode4 + ", " + pathTime4 + " mins, $" + pathCost4 + "\n"
+                                        + point4 + " to " + point5 + ": " + mode5 + ", " + pathTime5 + " mins, $" + pathCost5 + "\n");
 
                                 ArrayList<String> timeAndCost = new ArrayList<>();
                                 timeAndCost.add("Mode: " + mode1 + "\nTime: " + pathTime1 + " mins" + "\nCost: $" + pathCost1);
@@ -375,7 +397,7 @@ public class BruteForce {
                                 timeAndCost.add("Mode: " + mode5 + "\nTime: " + pathTime5 + " mins" + "\nCost: $" + pathCost5);
 
                                 if (totalCost <= budget) {
-                                    TripObject tripObject = new TripObject(trip, totalTime, totalCost);
+                                    TripObject tripObject = new TripObject(trip, totalTime, totalCost,appPrint);
                                     tripObject.setTripList(tripList);
                                     tripObject.setTimeAndCostList(timeAndCost);
                                     costsList.add(tripObject);
@@ -472,18 +494,26 @@ public class BruteForce {
                                     timeAndCost.add("Mode: "+mode6+"\nTime: "+pathTime6+" mins"+"\nCost: $"+pathCost6);
 
 
-                                    String trip = (startPoint + "to " + point1 + ": " + mode1 + "\n"
-                                            + point1 + "to " + point2 + ": " + mode2 + "\n"
-                                            + point2 + "to " + point3 + ": " + mode3 + "\n"
-                                            + point3 + "to " + point4 + ": " + mode4 + "\n"
-                                            + point4 + "to " + point5 + ": " + mode5 + "\n"
-                                            + point5 + "to " + point6 + ": " + mode6 + "\n");
-                                    double totalCost = pathCost1 + pathCost2 + pathCost3 + pathCost4 + pathCost5 + pathCost6;
+                                    String trip = (startPoint + " to " + point1 + ": " + mode1 + "\n"
+                                            + point1 + " to " + point2 + ": " + mode2 + "\n"
+                                            + point2 + " to " + point3 + ": " + mode3 + "\n"
+                                            + point3 + " to " + point4 + ": " + mode4 + "\n"
+                                            + point4 + " to " + point5 + ": " + mode5 + "\n"
+                                            + point5 + " to " + point6 + ": " + mode6 + "\n");
 
+                                    double totalCost = pathCost1 + pathCost2 + pathCost3 + pathCost4 + pathCost5 + pathCost6;
                                     int totalTime = pathTime1 + pathTime2 + pathTime3 + pathTime4 + pathTime5 + pathTime6;
 
+                                    String appPrint = ("Total Time: " + totalTime + "mins, Total Cost: $" + totalCost + "\n"
+                                            + startPoint + " to "+ point1 + ": "+ mode1 + ", " + pathTime1 + " mins, $" + pathCost1 +  "\n"
+                                            + point1 + " to " + point2 + ": " + mode2 + ", " + pathTime2 + " mins, $" + pathCost2 + "\n"
+                                            + point2 + " to " + point3 + ": " + mode3 + ", " + pathTime3 + " mins, $" + pathCost3 + "\n"
+                                            + point3 + " to " + point4 + ": " + mode4 + ", " + pathTime4 + " mins, $" + pathCost4 + "\n"
+                                            + point4 + " to " + point5 + ": " + mode5 + ", " + pathTime5 + " mins, $" + pathCost5 + "\n"
+                                            + point5 + " to " + point6 + ": " + mode6 + ", " + pathTime6 + " mins, $" + pathCost6 + "\n");
+
                                     if (totalCost <= budget){
-                                        TripObject tripObject = new TripObject(trip,totalTime,totalCost);
+                                        TripObject tripObject = new TripObject(trip,totalTime,totalCost,appPrint);
                                         tripObject.setTripList(tripList);
                                         tripObject.setTimeAndCostList(timeAndCost);
                                         costsList.add(tripObject);
@@ -505,16 +535,18 @@ public class BruteForce {
 
     static class TripObject implements Comparable<TripObject> {
         private String tripSignature;
+        private String infoPrint;
         //private data fields which are only modifiable by get, set
         private int totalTime = 0;
         private double totalCost = 0;
         private ArrayList<String> tripList;
         private ArrayList<String> timeAndCostList;
 
-        TripObject(String trip, int time, double cost) {
+        TripObject(String trip, int time, double cost, String appPrint) {
             this.tripSignature = trip;
             this.totalTime = time;
             this.totalCost = cost;
+            this.infoPrint = appPrint;
         }
 
         @Override
@@ -529,6 +561,10 @@ public class BruteForce {
 
         public String getTripSignature() {
             return tripSignature;// Accessor
+        }
+
+        public String getInfoPrint() {
+            return infoPrint;// Accessor
         }
 
         public int getTotalTime() {
@@ -556,7 +592,7 @@ public class BruteForce {
         }
     }
     //testing
-    public static void main(String[] args) {
+//     public static void main(String[] args) {
 //        System.out.println("ALL COMBINATIONS");
 //        int set1[] = {0, 1, 2};
 //        int k = 3;
@@ -571,15 +607,20 @@ public class BruteForce {
 //        System.out.println(generateCombinations(combList));
 //        int trancomb = generateCombinations(combList).size();
 //        System.out.println("Number of Transport Combinations: " + trancomb);
-        ArrayList<Integer> s = new ArrayList<>();
-        s.add(1);
-        s.add(2);
-        s.add(3);
-        s.add(4);
-        s.add(5);
-        TripObject o = CallBrute(s,20);
-        System.out.println(o.getTripList());
-        System.out.println(o.getTimeAndCostList());
-    }
+//        ArrayList<Integer> s = new ArrayList<>();
+//        s.add(1);
+//        s.add(2);
+//        s.add(3);
+//        s.add(4);
+//        s.add(5);
+//        TripObject o = CallBrute(s,20);
+//
+//        System.out.println(o.getTripList());
+//        System.out.println(o.getTimeAndCostList());
+//        System.out.println("Total Cost is $" + o.getTotalCost());
+//        System.out.println("Total Time Taken is " + o.getTotalTime());
+//        System.out.println(o.getTripSignature());
+//        System.out.println(o.getInfoPrint());
+//     }
 }
 
