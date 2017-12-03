@@ -158,19 +158,19 @@ public class dayplanner  extends FragmentActivity implements OnMapReadyCallback 
 //    }
     public void convert(String location){
         System.out.println(location);
-        if(location.equals("Marina bay sands")){
+        if(location.equals("Marina Bay Sands")){
             list.add(0);
         }
-        else if(location.equals("Singapore flyer")){
+        else if(location.equals("Singapore Flyer")){
             list.add(1);
         }
-        else if(location.equals("vivo city")){
+        else if(location.equals("Vivo City")){
             list.add(2);
         }
-        else if(location.equals("Universal studios")){
+        else if(location.equals("Universal Studios")){
             list.add(3);
         }
-        else if(location.equals("Buddha tooth relic temple")){
+        else if(location.equals("Buddha Tooth Relic Temple")){
             list.add(4);
         }
         else if(location.equals("Singapore Zoo")){
@@ -179,10 +179,10 @@ public class dayplanner  extends FragmentActivity implements OnMapReadyCallback 
         else if(location.equals("Orchard Road")){
             list.add(6);
         }
-        else if(location.equals("Jurong bird park")){
+        else if(location.equals("Jurong Bird Park")){
             list.add(7);
         }
-        else if(location.equals("Singapore Botanic Garden")){
+        else if(location.equals("Singapore Botanic Gardens")){
             list.add(8);
         }
         else if(location.equals("SUTD")){
