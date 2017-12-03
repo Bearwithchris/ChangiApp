@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-import static com.example.chris.changiappv3.Data.costArray;
-import static com.example.chris.changiappv3.Data.locations2;
-import static com.example.chris.changiappv3.Data.timeArray;
-import static com.example.chris.changiappv3.Data.transportMode;
+
 
 /**
  * Created by Jingxuan on 3/12/2017.
@@ -93,20 +90,20 @@ public class BruteForce {
             for (int a = 0; a<3; a++) {
                 int start1 = (int) array.get(0);
                 int attraction1 = (int) array.get(1);
-                int pathTime1 = timeArray[a][start1][attraction1];
-                double pathCost1 = costArray[a][start1][attraction1];
+                int pathTime1 = Data.timeArray[a][start1][attraction1];
+                double pathCost1 = Data.costArray[a][start1][attraction1];
                 // b is mode of transport from attraction 1 (aka start2) to attraction 2
                 for (int b = 0; b<3; b++) {
                     int start2 = (int) array.get(1);
                     int attraction2 = (int) array.get(2);
-                    int pathTime2 = timeArray[b][start2][attraction2];
-                    double pathCost2 = costArray[b][start2][attraction2];
+                    int pathTime2 = Data.timeArray[b][start2][attraction2];
+                    double pathCost2 = Data.costArray[b][start2][attraction2];
 
-                    String mode1 = transportMode.get(a);
-                    String mode2 = transportMode.get(b);
-                    String startPoint = locations2.get(start1);
-                    String point1 = locations2.get(attraction1);
-                    String point2 = locations2.get(attraction2);
+                    String mode1 = Data.transportMode.get(a);
+                    String mode2 = Data.transportMode.get(b);
+                    String startPoint = Data.locations2.get(start1);
+                    String point1 = Data.locations2.get(attraction1);
+                    String point2 = Data.locations2.get(attraction2);
                     String trip = (startPoint + "to "+ point1 + ": "+ mode1 + "\n"
                             + point1 +"to " + point2 + ": "+ mode2 + "\n");
 
@@ -153,28 +150,28 @@ public class BruteForce {
             for (int a = 0; a < 3; a++) {
                 int start1 = (int) array.get(0);
                 int attraction1 = (int) array.get(1);
-                int pathTime1 = timeArray[a][start1][attraction1];
-                double pathCost1 = costArray[a][start1][attraction1];
+                int pathTime1 = Data.timeArray[a][start1][attraction1];
+                double pathCost1 = Data.costArray[a][start1][attraction1];
                 // b is mode of transport from attraction 1 (aka start2) to attraction 2
                 for (int b = 0; b<3; b++) {
                     int start2 = (int) array.get(1);
                     int attraction2 = (int) array.get(2);
-                    int pathTime2 = timeArray[b][start2][attraction2];
-                    double pathCost2 = costArray[b][start2][attraction2];
+                    int pathTime2 = Data.timeArray[b][start2][attraction2];
+                    double pathCost2 = Data.costArray[b][start2][attraction2];
                     // C is mode of transport from attraction 2 (aka start3) to attraction 3
                     for (int c = 0; c < 3; c++) {
                         int start3 = (int) array.get(2);
                         int attraction3 = (int) array.get(3);
-                        int pathTime3 = timeArray[c][start3][attraction3];
-                        double pathCost3 = costArray[c][start3][attraction3];
+                        int pathTime3 = Data.timeArray[c][start3][attraction3];
+                        double pathCost3 = Data.costArray[c][start3][attraction3];
 
-                        String mode1 = transportMode.get(a);
-                        String mode2 = transportMode.get(b);
-                        String mode3 = transportMode.get(c);
-                        String startPoint = locations2.get(start1);
-                        String point1 = locations2.get(attraction1);
-                        String point2 = locations2.get(attraction2);
-                        String point3 = locations2.get(attraction3);
+                        String mode1 = Data.transportMode.get(a);
+                        String mode2 = Data.transportMode.get(b);
+                        String mode3 = Data.transportMode.get(c);
+                        String startPoint = Data.locations2.get(start1);
+                        String point1 = Data.locations2.get(attraction1);
+                        String point2 = Data.locations2.get(attraction2);
+                        String point3 = Data.locations2.get(attraction3);
                         String trip = (startPoint + "to " + point1 + ": "+ mode1 + "\n"
                                 + point1 + "to " + point2 + ": " + mode2 + "\n"
                                 + point2 + "to " + point3 + ": " + mode3 + "\n");
@@ -224,37 +221,37 @@ public class BruteForce {
             for (int a = 0; a < 3; a++) {
                 int start1 = (int) array.get(0);
                 int attraction1 = (int) array.get(1);
-                int pathTime1 = timeArray[a][start1][attraction1];
-                double pathCost1 = costArray[a][start1][attraction1];
+                int pathTime1 = Data.timeArray[a][start1][attraction1];
+                double pathCost1 = Data.costArray[a][start1][attraction1];
                 // b is mode of transport from attraction 1 (aka start2) to attraction 2
                 for (int b = 0; b<3; b++) {
                     int start2 = (int) array.get(1);
                     int attraction2 = (int) array.get(2);
-                    int pathTime2 = timeArray[b][start2][attraction2];
-                    double pathCost2 = costArray[b][start2][attraction2];
+                    int pathTime2 = Data.timeArray[b][start2][attraction2];
+                    double pathCost2 = Data.costArray[b][start2][attraction2];
                     // c is mode of transport from attraction 2 (aka start3) to attraction 3
                     for (int c = 0; c < 3; c++) {
                         int start3 = (int) array.get(2);
                         int attraction3 = (int) array.get(3);
-                        int pathTime3 = timeArray[c][start3][attraction3];
-                        double pathCost3 = costArray[c][start3][attraction3];
+                        int pathTime3 = Data.timeArray[c][start3][attraction3];
+                        double pathCost3 = Data.costArray[c][start3][attraction3];
                         // d is mode of transport from attraction 3 (aka start4) to attraction 4
                         for (int d = 0; d < 3; d++) {
                             int start4 = (int) array.get(3);
                             int attraction4 = (int) array.get(4);
-                            int pathTime4 = timeArray[d][start4][attraction4];
-                            double pathCost4 = costArray[d][start4][attraction4];
+                            int pathTime4 = Data.timeArray[d][start4][attraction4];
+                            double pathCost4 = Data.costArray[d][start4][attraction4];
 
-                            String mode1 = transportMode.get(a);
-                            String mode2 = transportMode.get(b);
-                            String mode3 = transportMode.get(c);
-                            String mode4 = transportMode.get(d);
+                            String mode1 = Data.transportMode.get(a);
+                            String mode2 = Data.transportMode.get(b);
+                            String mode3 = Data.transportMode.get(c);
+                            String mode4 = Data.transportMode.get(d);
 
-                            String startPoint = locations2.get(start1);
-                            String point1 = locations2.get(attraction1);
-                            String point2 = locations2.get(attraction2);
-                            String point3 = locations2.get(attraction3);
-                            String point4 = locations2.get(attraction4);
+                            String startPoint = Data.locations2.get(start1);
+                            String point1 = Data.locations2.get(attraction1);
+                            String point2 = Data.locations2.get(attraction2);
+                            String point3 = Data.locations2.get(attraction3);
+                            String point4 = Data.locations2.get(attraction4);
 
                             ArrayList<String> tripList = new ArrayList<>();
                             tripList.add(startPoint);
@@ -312,46 +309,46 @@ public class BruteForce {
             for (int a = 0; a < 3; a++) {
                 int start1 = (int) array.get(0);
                 int attraction1 = (int) array.get(1);
-                int pathTime1 = timeArray[a][start1][attraction1];
-                double pathCost1 = costArray[a][start1][attraction1];
+                int pathTime1 = Data.timeArray[a][start1][attraction1];
+                double pathCost1 = Data.costArray[a][start1][attraction1];
                 // b is mode of transport from attraction 1 (aka start2) to attraction 2
                 for (int b = 0; b<3; b++) {
                     int start2 = (int) array.get(1);
                     int attraction2 = (int) array.get(2);
-                    int pathTime2 = timeArray[b][start2][attraction2];
-                    double pathCost2 = costArray[b][start2][attraction2];
+                    int pathTime2 = Data.timeArray[b][start2][attraction2];
+                    double pathCost2 = Data.costArray[b][start2][attraction2];
                     // c is mode of transport from attraction 2 (aka start3) to attraction 3
                     for (int c = 0; c < 3; c++) {
                         int start3 = (int) array.get(2);
                         int attraction3 = (int) array.get(3);
-                        int pathTime3 = timeArray[c][start3][attraction3];
-                        double pathCost3 = costArray[c][start3][attraction3];
+                        int pathTime3 = Data.timeArray[c][start3][attraction3];
+                        double pathCost3 = Data.costArray[c][start3][attraction3];
                         // d is mode of transport from attraction 3 (aka start4) to attraction 4
                         for (int d = 0; d < 3; d++) {
                             int start4 = (int) array.get(3);
                             int attraction4 = (int) array.get(4);
-                            int pathTime4 = timeArray[d][start4][attraction4];
-                            double pathCost4 = costArray[d][start4][attraction4];
+                            int pathTime4 = Data.timeArray[d][start4][attraction4];
+                            double pathCost4 = Data.costArray[d][start4][attraction4];
                             // e is mode of transport from attraction 4 (aka start5) to attraction 5
                             for (int e = 0; e < 3; e++) {
                                 int start5 = (int) array.get(4);
                                 int attraction5 = (int) array.get(5);
-                                int pathTime5 = timeArray[e][start5][attraction5];
-                                double pathCost5 = costArray[e][start5][attraction5];
+                                int pathTime5 = Data.timeArray[e][start5][attraction5];
+                                double pathCost5 = Data.costArray[e][start5][attraction5];
 
-                                String mode1 = transportMode.get(a);
-                                String mode2 = transportMode.get(b);
-                                String mode3 = transportMode.get(c);
-                                String mode4 = transportMode.get(d);
-                                String mode5 = transportMode.get(e);
+                                String mode1 = Data.transportMode.get(a);
+                                String mode2 = Data.transportMode.get(b);
+                                String mode3 = Data.transportMode.get(c);
+                                String mode4 = Data.transportMode.get(d);
+                                String mode5 = Data.transportMode.get(e);
 
 
-                                String startPoint = locations2.get(start1);
-                                String point1 = locations2.get(attraction1);
-                                String point2 = locations2.get(attraction2);
-                                String point3 = locations2.get(attraction3);
-                                String point4 = locations2.get(attraction4);
-                                String point5 = locations2.get(attraction5);
+                                String startPoint = Data.locations2.get(start1);
+                                String point1 = Data.locations2.get(attraction1);
+                                String point2 = Data.locations2.get(attraction2);
+                                String point3 = Data.locations2.get(attraction3);
+                                String point4 = Data.locations2.get(attraction4);
+                                String point5 = Data.locations2.get(attraction5);
 
                                 ArrayList<String> tripList = new ArrayList<>();
                                 tripList.add(startPoint);
@@ -409,53 +406,53 @@ public class BruteForce {
             for (int a = 0; a < 3; a++) {
                 int start1 = (int) array.get(0);
                 int attraction1 = (int) array.get(1);
-                int pathTime1 = timeArray[a][start1][attraction1];
-                double pathCost1 = costArray[a][start1][attraction1];
+                int pathTime1 = Data.timeArray[a][start1][attraction1];
+                double pathCost1 = Data.costArray[a][start1][attraction1];
                 // b is mode of transport from attraction 1 (aka start2) to attraction 2
                 for (int b = 0; b<3; b++) {
                     int start2 = (int) array.get(1);
                     int attraction2 = (int) array.get(2);
-                    int pathTime2 = timeArray[b][start2][attraction2];
-                    double pathCost2 = costArray[b][start2][attraction2];
+                    int pathTime2 = Data.timeArray[b][start2][attraction2];
+                    double pathCost2 = Data.costArray[b][start2][attraction2];
                     // c is mode of transport from attraction 2 (aka start3) to attraction 3
                     for (int c = 0; c < 3; c++) {
                         int start3 = (int) array.get(2);
                         int attraction3 = (int) array.get(3);
-                        int pathTime3 = timeArray[c][start3][attraction3];
-                        double pathCost3 = costArray[c][start3][attraction3];
+                        int pathTime3 = Data.timeArray[c][start3][attraction3];
+                        double pathCost3 = Data.costArray[c][start3][attraction3];
                         // d is mode of transport from attraction 3 (aka start4) to attraction 4
                         for (int d = 0; d < 3; d++) {
                             int start4 = (int) array.get(3);
                             int attraction4 = (int) array.get(4);
-                            int pathTime4 = timeArray[d][start4][attraction4];
-                            double pathCost4 = costArray[d][start4][attraction4];
+                            int pathTime4 = Data.timeArray[d][start4][attraction4];
+                            double pathCost4 = Data.costArray[d][start4][attraction4];
                             // e is mode of transport from attraction 4 (aka start5) to attraction 5
                             for (int e = 0; e < 3; e++) {
                                 int start5 = (int) array.get(4);
                                 int attraction5 = (int) array.get(5);
-                                int pathTime5 = timeArray[e][start5][attraction5];
-                                double pathCost5 = costArray[e][start5][attraction5];
+                                int pathTime5 = Data.timeArray[e][start5][attraction5];
+                                double pathCost5 = Data.costArray[e][start5][attraction5];
                                 // f is mode of transport from attraction 5 (aka start6) to attraction 6
                                 for (int f = 0; f < 3; f++) {
                                     int start6 = (int) array.get(5);
                                     int attraction6 = (int) array.get(6);
-                                    int pathTime6 = timeArray[f][start6][attraction6];
-                                    double pathCost6 = costArray[f][start6][attraction6];
+                                    int pathTime6 = Data.timeArray[f][start6][attraction6];
+                                    double pathCost6 = Data.costArray[f][start6][attraction6];
 
-                                    String mode1 = transportMode.get(a);
-                                    String mode2 = transportMode.get(b);
-                                    String mode3 = transportMode.get(c);
-                                    String mode4 = transportMode.get(d);
-                                    String mode5 = transportMode.get(e);
-                                    String mode6 = transportMode.get(f);
+                                    String mode1 = Data.transportMode.get(a);
+                                    String mode2 = Data.transportMode.get(b);
+                                    String mode3 = Data.transportMode.get(c);
+                                    String mode4 = Data.transportMode.get(d);
+                                    String mode5 = Data.transportMode.get(e);
+                                    String mode6 = Data.transportMode.get(f);
 
-                                    String startPoint = locations2.get(start1);
-                                    String point1 = locations2.get(attraction1);
-                                    String point2 = locations2.get(attraction2);
-                                    String point3 = locations2.get(attraction3);
-                                    String point4 = locations2.get(attraction4);
-                                    String point5 = locations2.get(attraction5);
-                                    String point6 = locations2.get(attraction6);
+                                    String startPoint = Data.locations2.get(start1);
+                                    String point1 = Data.locations2.get(attraction1);
+                                    String point2 = Data.locations2.get(attraction2);
+                                    String point3 = Data.locations2.get(attraction3);
+                                    String point4 = Data.locations2.get(attraction4);
+                                    String point5 = Data.locations2.get(attraction5);
+                                    String point6 = Data.locations2.get(attraction6);
 
                                     ArrayList<String> tripList = new ArrayList<>();
                                     tripList.add(startPoint);
