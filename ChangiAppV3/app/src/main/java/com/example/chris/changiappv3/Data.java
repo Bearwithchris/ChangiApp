@@ -1,4 +1,4 @@
-package com.example.lib01;
+package com.example.chris.changiappv3;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -10,6 +10,8 @@ import java.util.HashMap;
 
 public class Data {
     public static final HashMap<String,Integer> locations=new HashMap<String,Integer>();
+    public static final HashMap<Integer,String> locations2=new HashMap<Integer,String>();
+
     static {
         locations.put("Marina Bay Sands",0);
         locations.put("Singapore Flyer",1);
@@ -21,11 +23,30 @@ public class Data {
         locations.put("Jurong Bird Park",7);
         locations.put("Singapore Botanic Gardens",8);
         locations.put("SUTD",9);
+
+        locations2.put(0,"Marina Bay Sands");
+        locations2.put(1,"Singapore Flyer");
+        locations2.put(2,"Vivo City");
+        locations2.put(3,"Universal Studios Singapore");
+        locations2.put(4,"Buddha Tooth Relic Temple");
+        locations2.put(5,"Singapore Zoo");
+        locations2.put(6,"Orchard Road");
+        locations2.put(7,"Jurong Bird Park");
+        locations2.put(8,"Singapore Botanic Gardens");
+        locations2.put(9,"SUTD");
+    }
+    //[mode transport (0:walk, 1: public transport, 2: taxi)][from][to]
+    public static final HashMap<Integer, String> transportMode = new HashMap<Integer,String>();
+    static{
+        transportMode.put(0,"Walk");
+        transportMode.put(1,"Public Transport");
+        transportMode.put(2,"Taxi");
     }
 
+    // number of key-value mappings in the map
     public static final int num_locations = locations.size();
 
-    //[mode transport (0:walk, 1: public transport, 2: taxi)][from][to]
+    //to store info in the 3D Array
     public static final double[][][] costArray = new double[3][num_locations][num_locations];
     static{
         //walking cost
@@ -638,4 +659,35 @@ public class Data {
         timeArray[2][9][7] = 35;
         timeArray[2][9][8] = 23 ;
     }
+
+    //to obtain the name of location using index
+    public static Object getKeyFromValue(HashMap hm, Integer index){
+        for (Object o : hm.keySet()){
+            if (hm.get(o).equals(index)){
+                return o;
+            }
+        }
+        return null;
+    }
+
+    //testing
+    public static void main(String[] args) {
+        int mode = 0;
+        int from = 0;
+        int to = 1;
+
+        // costArray[mode][from][to]
+        System.out.println("For transport mode: " + transportMode.get(mode));
+        System.out.println("Time from " + getKeyFromValue(locations, from)
+                + " to " + getKeyFromValue(locations, to)
+                + " is $" + costArray[mode][from][to]);
+
+        // timeArray[mode][from][to]
+        System.out.println("For transport mode: " + transportMode.get(mode));
+        System.out.println("Time from " + getKeyFromValue(locations, from)
+                + " to " + getKeyFromValue(locations, to)
+                + " is " + timeArray[mode][from][to] + " mins");
+
+    }
+
 }
