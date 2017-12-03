@@ -84,6 +84,7 @@ public class dayplanner  extends FragmentActivity implements OnMapReadyCallback 
         Cursor cursor = locationDb.rawQuery(SQL_QUERY_TABLE, null);
 
         String outstring="";
+        String signature="";
         int indexRemarks=cursor.getColumnIndex(LocationsContract.LocationEntry.COL_LOCATIONNAME);
         int indexAmount=cursor.getColumnIndex(LocationsContract.LocationEntry.COL_AMOUNT);
         int counter=0;
@@ -97,7 +98,10 @@ public class dayplanner  extends FragmentActivity implements OnMapReadyCallback 
             outstring=outstring+location+" $"+myAmount+"\n";
         }
 
-        testview.setText(outstring);
+        //Linking Brute Algorithm to the Application
+        BruteForce.TripObject o = BruteForce.CallBrute(list,budget);
+        signature = o.getInfoPrint();
+        testview.setText(signature);
         print();
     }
 
