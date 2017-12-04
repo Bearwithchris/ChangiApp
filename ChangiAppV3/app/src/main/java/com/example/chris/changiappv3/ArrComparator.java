@@ -1,4 +1,4 @@
-package com.example;
+package com.example.chris.changiappv3;
 
 /**
  * Created by edmund on 1/12/17.
