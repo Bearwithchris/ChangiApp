@@ -1,4 +1,4 @@
-package com.example;
+package com.example.chris.changiappv3;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,21 +25,21 @@ public class NearestNeighbour {
 
     }
 
-
-    public static void main(String[] args){
-
-        int[] input = {1, 5, 4, 3};
-        NearestNeighbour smart = new NearestNeighbour();
-        smart.setBudget(25.3);
-        smart.setDestination(input);
-        smart.computeModeOfTransport();
-        System.out.println("This algorithm prioritises the efficiency of each dollar you spent!");
-        System.out.println();
-        System.out.println(smart);
-        System.out.println("Total cost is: $" + smart.getTotalCost());
-        System.out.println("Total time is: " + smart.getTotalTime() + " minutes");
-        System.out.println("Remaining budget is: " + smart.budget);
-    }
+//
+//    public static void main(String[] args){
+//
+//        int[] input = {1, 5, 4, 3};
+//        NearestNeighbour smart = new NearestNeighbour();
+//        smart.setBudget(25.3);
+//        smart.setDestination(input);
+//        smart.computeModeOfTransport();
+//        System.out.println("This algorithm prioritises the efficiency of each dollar you spent!");
+//        System.out.println();
+//        System.out.println(smart);
+//        System.out.println("Total cost is: $" + smart.getTotalCost());
+//        System.out.println("Total time is: " + smart.getTotalTime() + " minutes");
+//        System.out.println("Remaining budget is: " + smart.budget);
+//    }
 
 // Private helper functions
     private static int getMinEleIndex(int[] arr) {
@@ -199,7 +199,7 @@ public class NearestNeighbour {
     public static ArrayList<String> getTripPath(){
         ArrayList<String> list = new ArrayList<String>();
         for (int aPath : path) {
-            list.add(Data.locationsIndex.get(aPath));
+            list.add(Data.locations2.get(aPath));
         }
         return list;
     }
@@ -208,7 +208,7 @@ public class NearestNeighbour {
         getTimeAndCost();
         ArrayList<String> list = new ArrayList<String>();
         for (int aTransport : transport) {
-            list.add(Data.modeOfTransport.get(aTransport));
+            list.add(Data.transportMode.get(aTransport));
         }
         return list;
     }
