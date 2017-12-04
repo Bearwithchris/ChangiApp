@@ -119,7 +119,7 @@ public class BruteForce {
 
                     int totalTime = pathTime1 + pathTime2;
 
-                    String appPrint = ("Total Time: " + totalTime + "mins                                    Total Cost: $" + totalCost + "\n"
+                    String appPrint = ("Total Time: " + totalTime + "mins                             Total Cost: $" + totalCost + "\n"
                             + "Leg #0: Going from " + startPoint + " to " + point1 + " via " + mode1 + " (" + pathTime1 + " mins): $" + pathCost1 + "\n"
                             + "Leg #1: Going from " + point1 + " to " + point2 + " via " + mode2 + " (" + pathTime2 + " mins): $" + pathCost2 + "\n");
 
@@ -191,7 +191,7 @@ public class BruteForce {
                         double totalCost = pathCost1 + pathCost2 + pathCost3;
                         int totalTime = pathTime1 + pathTime2 + pathTime3 ;
 
-                        String appPrint = ("Total Time: " + totalTime + "mins                                    Total Cost: $" + totalCost + "\n"
+                        String appPrint = ("Total Time: " + totalTime + "mins                             Total Cost: $" + totalCost + "\n"
                                 + "Leg #0: Going from " + startPoint + " to " + point1 + " via " + mode1 + " (" + pathTime1 + " mins): $" + pathCost1 + "\n"
                                 + "Leg #1: Going from " + point1 + " to " + point2 + " via " + mode2 + " (" + pathTime2 + " mins): $" + pathCost2 + "\n"
                                 + "Leg #2: Going from " + point2 + " to " + point3 + " via " + mode3 + " (" + pathTime3 + " mins): $" + pathCost3 + "\n");
@@ -285,7 +285,7 @@ public class BruteForce {
                             double totalCost = pathCost1 + pathCost2 + pathCost3 + pathCost4;
                             int totalTime = pathTime1 + pathTime2 + pathTime3 + pathTime4;
 
-                            String appPrint = ("Total Time: " + totalTime + "mins                                    Total Cost: $" + totalCost + "\n"
+                            String appPrint = ("Total Time: " + totalTime + "mins                             Total Cost: $" + totalCost + "\n"
                                     + "Leg #0: Going from " + startPoint + " to " + point1 + " via " + mode1 + " (" + pathTime1 + " mins): $" + pathCost1 + "\n"
                                     + "Leg #1: Going from " + point1 + " to " + point2 + " via " + mode2 + " (" + pathTime2 + " mins): $" + pathCost2 + "\n"
                                     + "Leg #2: Going from " + point2 + " to " + point3 + " via " + mode3 + " (" + pathTime3 + " mins): $" + pathCost3 + "\n"
@@ -390,7 +390,7 @@ public class BruteForce {
                                 double totalCost = pathCost1 + pathCost2 + pathCost3 + pathCost4 + pathCost5;
                                 int totalTime = pathTime1 + pathTime2 + pathTime3 + pathTime4 + pathTime5;
 
-                                String appPrint = ("Total Time: " + totalTime + "mins                                    Total Cost: $" + totalCost + "\n"
+                                String appPrint = ("Total Time: " + totalTime + "mins                             Total Cost: $" + totalCost + "\n"
                                         + "Leg #0: Going from " + startPoint + " to " + point1 + " via " + mode1 + " (" + pathTime1 + " mins): $" + pathCost1 + "\n"
                                         + "Leg #1: Going from " + point1 + " to " + point2 + " via " + mode2 + " (" + pathTime2 + " mins): $" + pathCost2 + "\n"
                                         + "Leg #2: Going from " + point2 + " to " + point3 + " via " + mode3 + " (" + pathTime3 + " mins): $" + pathCost3 + "\n"
@@ -512,7 +512,7 @@ public class BruteForce {
                                     double totalCost = pathCost1 + pathCost2 + pathCost3 + pathCost4 + pathCost5 + pathCost6;
                                     int totalTime = pathTime1 + pathTime2 + pathTime3 + pathTime4 + pathTime5 + pathTime6;
 
-                                    String appPrint = ("Total Time: " + totalTime + "mins                                    Total Cost: $" + totalCost + "\n"
+                                    String appPrint = ("Total Time: " + totalTime + "mins                             Total Cost: $" + totalCost + "\n"
                                             + "Leg #0: Going from " + startPoint + " to " + point1 + " via " + mode1 + " (" + pathTime1 + " mins): $" + pathCost1 + "\n"
                                             + "Leg #1: Going from " + point1 + " to " + point2 + " via " + mode2 + " (" + pathTime2 + " mins): $" + pathCost2 + "\n"
                                             + "Leg #2: Going from " + point2 + " to " + point3 + " via " + mode3 + " (" + pathTime3 + " mins): $" + pathCost3 + "\n"
@@ -639,7 +639,7 @@ public class BruteForce {
                                         double totalCost = pathCost1 + pathCost2 + pathCost3 + pathCost4 + pathCost5 + pathCost6 + pathCost7;
                                         int totalTime = pathTime1 + pathTime2 + pathTime3 + pathTime4 + pathTime5 + pathTime6 + pathTime7;
 
-                                        String appPrint = ("Total Time: " + totalTime + "mins                                    Total Cost: $" + totalCost + "\n"
+                                        String appPrint = ("Total Time: " + totalTime + "mins                             Total Cost: $" + totalCost + "\n"
                                                 + "Leg #0: Going from " + startPoint + " to " + point1 + " via " + mode1 + " (" + pathTime1 + " mins): $" + pathCost1 + "\n"
                                                 + "Leg #1: Going from " + point1 + " to " + point2 + " via " + mode2 + " (" + pathTime2 + " mins): $" + pathCost2 + "\n"
                                                 + "Leg #2: Going from " + point2 + " to " + point3 + " via " + mode3 + " (" + pathTime3 + " mins): $" + pathCost3 + "\n"
@@ -778,7 +778,7 @@ public class BruteForce {
                                             double totalCost = pathCost1 + pathCost2 + pathCost3 + pathCost4 + pathCost5 + pathCost6 + pathCost7 + pathCost8;
                                             int totalTime = pathTime1 + pathTime2 + pathTime3 + pathTime4 + pathTime5 + pathTime6 + pathTime7 + pathTime8;
 
-                                            String appPrint = ("Total Time: " + totalTime + "mins                                    Total Cost: $" + totalCost + "\n"
+                                            String appPrint = ("Total Time: " + totalTime + "mins                             Total Cost: $" + totalCost + "\n"
                                                     + "Leg #0: Going from " + startPoint + " to " + point1 + " via " + mode1 + " (" + pathTime1 + " mins): $" + pathCost1 + "\n"
                                                     + "Leg #1: Going from " + point1 + " to " + point2 + " via " + mode2 + " (" + pathTime2 + " mins): $" + pathCost2 + "\n"
                                                     + "Leg #2: Going from " + point2 + " to " + point3 + " via " + mode3 + " (" + pathTime3 + " mins): $" + pathCost3 + "\n"
@@ -930,7 +930,7 @@ public class BruteForce {
                                                 double totalCost = pathCost1 + pathCost2 + pathCost3 + pathCost4 + pathCost5 + pathCost6 + pathCost7 + pathCost8 + pathCost9;
                                                 int totalTime = pathTime1 + pathTime2 + pathTime3 + pathTime4 + pathTime5 + pathTime6 + pathTime7 + pathTime8 + pathTime9;
 
-                                                String appPrint = ("Total Time: " + totalTime + "mins                                    Total Cost: $" + totalCost + "\n"
+                                                String appPrint = ("Total Time: " + totalTime + "mins                             Total Cost: $" + totalCost + "\n"
                                                         + "Leg #0: Going from " + startPoint + " to " + point1 + " via " + mode1 + " (" + pathTime1 + " mins): $" + pathCost1 + "\n"
                                                         + "Leg #1: Going from " + point1 + " to " + point2 + " via " + mode2 + " (" + pathTime2 + " mins): $" + pathCost2 + "\n"
                                                         + "Leg #2: Going from " + point2 + " to " + point3 + " via " + mode3 + " (" + pathTime3 + " mins): $" + pathCost3 + "\n"
@@ -1095,7 +1095,7 @@ public class BruteForce {
                                                     double totalCost = pathCost1 + pathCost2 + pathCost3 + pathCost4 + pathCost5 + pathCost6 + pathCost7 + pathCost8 + pathCost9 + pathCost10;
                                                     int totalTime = pathTime1 + pathTime2 + pathTime3 + pathTime4 + pathTime5 + pathTime6 + pathTime7 + pathTime8 + pathTime9 + pathTime10;
 
-                                                    String appPrint = ("Total Time: " + totalTime + "mins                                    Total Cost: $" + totalCost + "\n"
+                                                    String appPrint = ("Total Time: " + totalTime + "mins                             Total Cost: $" + totalCost + "\n"
                                                             + "Leg #0: Going from " + startPoint + " to " + point1 + " via " + mode1 + " (" + pathTime1 + " mins): $" + pathCost1 + "\n"
                                                             + "Leg #1: Going from " + point1 + " to " + point2 + " via " + mode2 + " (" + pathTime2 + " mins): $" + pathCost2 + "\n"
                                                             + "Leg #2: Going from " + point2 + " to " + point3 + " via " + mode3 + " (" + pathTime3 + " mins): $" + pathCost3 + "\n"
