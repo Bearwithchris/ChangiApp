@@ -220,12 +220,11 @@ public class dayplanner  extends FragmentActivity implements OnMapReadyCallback 
                 int[] ints = new int[list.size()];
                 for (int i = 0, len = list.size(); i < len; i++)
                     ints[i] = list.get(i);
-//            int[] myIntArr = {1, 5, 4, 3};
                 fastNN.setDestination(ints);
                 fastNN.getModeOfTransport();
-                //System.out.println(fastNN);
-                signature = fastNN.getString();
-
+                String pathStr = fastNN.getString();
+                signature = "Total Time: " + fastNN.getTotalTime() + "mins" + "                                     Total Cost: $" + fastNN.getTotalCost() + "\n"
+                         + pathStr;
             }
 
             return null;
