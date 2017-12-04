@@ -25,22 +25,6 @@ public class NearestNeighbour {
 
     }
 
-//
-//    public static void main(String[] args){
-//
-//        int[] input = {1, 5, 4, 3};
-//        NearestNeighbour smart = new NearestNeighbour();
-//        smart.setBudget(25.3);
-//        smart.setDestination(input);
-//        smart.computeModeOfTransport();
-//        System.out.println("This algorithm prioritises the efficiency of each dollar you spent!");
-//        System.out.println();
-//        System.out.println(smart);
-//        System.out.println("Total cost is: $" + smart.getTotalCost());
-//        System.out.println("Total time is: " + smart.getTotalTime() + " minutes");
-//        System.out.println("Remaining budget is: " + smart.budget);
-//    }
-
 // Private helper functions
     private static int getMinEleIndex(int[] arr) {
         int small = arr[0];                   //state of min element
@@ -195,11 +179,6 @@ public class NearestNeighbour {
         destinations = new int[a.length];
         System.arraycopy(a, 0, destinations, 0, a.length);
     }
-
-//    public static void setDestinations(ArrayList<Integer> arr){
-//        destinations = new int[arr.size()];
-//        System.arraycopy(arr, 0, destinations, 0, arr.size());
-//    }
 
     public static ArrayList<String> getTripPath(){
         ArrayList<String> list = new ArrayList<String>();
