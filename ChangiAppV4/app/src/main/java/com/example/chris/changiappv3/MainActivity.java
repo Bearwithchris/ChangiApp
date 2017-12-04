@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private RecyclerView mRVLocations; //mRVFishPrice
     private AdapterLocation mAdapter; //mAdapter
 
+    public LocationDbHelper locationDbHelper;
+    public SQLiteDatabase locationDb;
+
     Button planner;
     SharedPreferences sharedPref;
     ArrayList<String> list;
@@ -51,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         list=new ArrayList<>();
         list.clear();
         planner=findViewById(R.id.dayplanner);
+        locationDbHelper=new LocationDbHelper(this);
+        locationDb=locationDbHelper.getWritableDatabase();
 
 
         sharedPref= PreferenceManager.getDefaultSharedPreferences(this);
@@ -146,6 +151,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     protected void dp(View view){
         Intent intent=new Intent(this,dayplanner.class);
         startActivity(intent);
+    }
+
+    public void removeEntireDb(View view){
+        list.clear();
+        locationDb.delete(LocationsContract.LocationEntry.TABLE_NAME,null,null);
     }
 
     //Menu========================================================================================

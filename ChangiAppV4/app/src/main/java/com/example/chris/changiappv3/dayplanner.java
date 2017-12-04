@@ -10,6 +10,7 @@ import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -57,6 +58,7 @@ public class dayplanner  extends FragmentActivity implements OnMapReadyCallback 
         locationDbHelper=new LocationDbHelper(this);
         locationDb=locationDbHelper.getWritableDatabase();
         testview=findViewById(R.id.test);
+        testview.setMovementMethod(new ScrollingMovementMethod());
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
