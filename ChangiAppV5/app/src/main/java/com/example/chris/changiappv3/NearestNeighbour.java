@@ -147,21 +147,21 @@ public class NearestNeighbour {
         }
     }
 
-//    public static ArrayList<Integer> getTime(){
-//        ArrayList<Integer> list = new ArrayList<Integer>();
-//        for (int i = 0; i < transport.length; i++){
-//            list.add(Data.timeArray[transport[i]][path[i]][path[i+1]]);
-//        }
-//        return list;
-//    }
+   public static ArrayList<Integer> getTime(){
+       ArrayList<Integer> list = new ArrayList<Integer>();
+       for (int i = 0; i < transport.length; i++){
+           list.add(Data.timeArray[transport[i]][path[i]][path[i+1]]);
+       }
+       return list;
+   }
 
-//    public static ArrayList<Double> getCost(){
-//        ArrayList<Double> list = new ArrayList<Double>();
-//        for (int i = 0; i < transport.length; i++){
-//            list.add(Data.costArray[transport[i]][path[i]][path[i+1]]);
-//        }
-//        return list;
-//    }
+   public static ArrayList<Double> getCost(){
+       ArrayList<Double> list = new ArrayList<Double>();
+       for (int i = 0; i < transport.length; i++){
+           list.add(Data.costArray[transport[i]][path[i]][path[i+1]]);
+       }
+       return list;
+   }
 
     public static void setBudget(double b){
         budget = b;
@@ -208,7 +208,9 @@ public class NearestNeighbour {
     public String getString(){
         String s = "";
         for (int i = 0; i < transport.length; i++){
-            s+= "Leg #" + i + ": Going from " + getTripPath().get(i) + " to " + getTripPath().get(i+1) + " via " + getTripTransport().get(i) + "\n";
+            s+= "Leg #" + i + ": Going from " + getTripPath().get(i)
+                    + " to " + getTripPath().get(i+1) + " via " + getTripTransport().get(i)
+                    + " (" + getTime().get(i) + "mins): $" + getCost().get(i) + "\n";
         }
         return s;
     }
