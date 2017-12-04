@@ -93,19 +93,24 @@ public class dayplanner  extends FragmentActivity implements OnMapReadyCallback 
             String location = cursor.getString(indexRemarks);
 //            addRg(location,counter,Integer.parseInt(myAmount));
 //            counter+=1;
-            System.out.println(location);
+           // System.out.println(location);
             convert(location);
             outstring=outstring+location+" $"+myAmount+"\n";
         }
-
-        //Linking Brute Algorithm to the Application
-        BruteForce.TripObject o = BruteForce.CallBrute(list,budget);
-        signature = o.getInfoPrint();
-        testview.setText(signature);
-        print();
+        if(list.isEmpty()) {
+            testview.setText("");
+        }
+        else {
+            //Linking Brute Algorithm to the Application
+            BruteForce.TripObject o = BruteForce.CallBrute(list, budget);
+            signature = o.getInfoPrint();
+            testview.setText(signature);
+            print();
+        }
     }
 
     public void removeEntireDb(View view){
+        list.clear();
         locationDb.delete(LocationsContract.LocationEntry.TABLE_NAME,null,null);
         onClickGetEntireDb();
     }
