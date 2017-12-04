@@ -111,9 +111,9 @@ public class BruteForce {
 
                     int totalTime = pathTime1 + pathTime2;
 
-                    String appPrint = ("Total Time: " + totalTime + "mins, Total Cost: $" + totalCost + "\n"
-                            + startPoint + " to " + point1 + ": " + mode1 + ", " + pathTime1 + " mins, $" + pathCost1 +  "\n"
-                            + point1 + " to " + point2 + ": " + mode2 + ", " + pathTime2 + " mins, $" + pathCost2 + "\n");
+                    String appPrint = ("Total Time: " + totalTime + "mins           Total Cost: $" + totalCost + "\n"
+                            + startPoint + " to "+ point1 + " ("+ mode1 + ", " + pathTime1 + " mins): $" + pathCost1 +  "\n"
+                            + point1 + " to " + point2 + " (" + mode2 + ", " + pathTime2 + " mins): $" + pathCost2 + "\n");
 
                     ArrayList<String> tripList = new ArrayList<>();
                     tripList.add(startPoint);
@@ -183,10 +183,10 @@ public class BruteForce {
                         double totalCost = pathCost1 + pathCost2 + pathCost3;
                         int totalTime = pathTime1 + pathTime2 + pathTime3 ;
 
-                        String appPrint = ("Total Time: " + totalTime + "mins, Total Cost: $" + totalCost + "\n"
-                                + startPoint + " to "+ point1 + ": "+ mode1 + ", " + pathTime1 + " mins, $" + pathCost1 +  "\n"
-                                + point1 + " to " + point2 + ": " + mode2 + ", " + pathTime2 + " mins, $" + pathCost2 + "\n"
-                                + point2 + " to " + point3 + ": " + mode3 + ", " + pathTime3 + " mins, $" + pathCost3 + "\n");
+                        String appPrint = ("Total Time: " + totalTime + "mins           Total Cost: $" + totalCost + "\n"
+                                + startPoint + " to "+ point1 + " ("+ mode1 + ", " + pathTime1 + " mins): $" + pathCost1 +  "\n"
+                                + point1 + " to " + point2 + " (" + mode2 + ", " + pathTime2 + " mins): $" + pathCost2 + "\n"
+                                + point2 + " to " + point3 + " (" + mode3 + ", " + pathTime3 + " mins): $" + pathCost3 + "\n");
 
                         ArrayList<String> tripList = new ArrayList<>();
                         tripList.add(startPoint);
@@ -277,11 +277,11 @@ public class BruteForce {
                             double totalCost = pathCost1 + pathCost2 + pathCost3 + pathCost4;
                             int totalTime = pathTime1 + pathTime2 + pathTime3 + pathTime4;
 
-                            String appPrint = ("Total Time: " + totalTime + "mins, Total Cost: $" + totalCost + "\n"
-                                    + startPoint + " to "+ point1 + ": "+ mode1 + ", " + pathTime1 + " mins, $" + pathCost1 +  "\n"
-                                    + point1 + " to " + point2 + ": " + mode2 + ", " + pathTime2 + " mins, $" + pathCost2 + "\n"
-                                    + point2 + " to " + point3 + ": " + mode3 + ", " + pathTime3 + " mins, $" + pathCost3 + "\n"
-                                    + point3 + " to " + point4 + ": " + mode4 + ", " + pathTime4 + " mins, $" + pathCost4 +"\n");
+                            String appPrint = ("Total Time: " + totalTime + "mins           Total Cost: $" + totalCost + "\n"
+                                    + startPoint + " to "+ point1 + " ("+ mode1 + ", " + pathTime1 + " mins): $" + pathCost1 +  "\n"
+                                    + point1 + " to " + point2 + " (" + mode2 + ", " + pathTime2 + " mins): $" + pathCost2 + "\n"
+                                    + point2 + " to " + point3 + " (" + mode3 + ", " + pathTime3 + " mins): $" + pathCost3 + "\n"
+                                    + point3 + " to " + point4 + " (" + mode4 + ", " + pathTime4 + " mins): $" + pathCost4 + "\n");
 
                             ArrayList<String> timeAndCost = new ArrayList<>();
                             timeAndCost.add("Mode: " + mode1 + "\nTime: " + pathTime1 + " mins" + "\nCost: $" + pathCost1);
@@ -382,12 +382,12 @@ public class BruteForce {
                                 double totalCost = pathCost1 + pathCost2 + pathCost3 + pathCost4 + pathCost5;
                                 int totalTime = pathTime1 + pathTime2 + pathTime3 + pathTime4 + pathTime5;
 
-                                String appPrint = ("Total Time: " + totalTime + "mins, Total Cost: $" + totalCost + "\n"
-                                        + startPoint + " to "+ point1 + ": "+ mode1 + ", " + pathTime1 + " mins, $" + pathCost1 +  "\n"
-                                        + point1 + " to " + point2 + ": " + mode2 + ", " + pathTime2 + " mins, $" + pathCost2 + "\n"
-                                        + point2 + " to " + point3 + ": " + mode3 + ", " + pathTime3 + " mins, $" + pathCost3 + "\n"
-                                        + point3 + " to " + point4 + ": " + mode4 + ", " + pathTime4 + " mins, $" + pathCost4 + "\n"
-                                        + point4 + " to " + point5 + ": " + mode5 + ", " + pathTime5 + " mins, $" + pathCost5 + "\n");
+                                String appPrint = ("Total Time: " + totalTime + "mins           Total Cost: $" + totalCost + "\n"
+                                        + startPoint + " to "+ point1 + " ("+ mode1 + ", " + pathTime1 + " mins): $" + pathCost1 +  "\n"
+                                        + point1 + " to " + point2 + " (" + mode2 + ", " + pathTime2 + " mins): $" + pathCost2 + "\n"
+                                        + point2 + " to " + point3 + " (" + mode3 + ", " + pathTime3 + " mins): $" + pathCost3 + "\n"
+                                        + point3 + " to " + point4 + " (" + mode4 + ", " + pathTime4 + " mins): $" + pathCost4 + "\n"
+                                        + point4 + " to " + point5 + " (" + mode5 + ", " + pathTime5 + " mins): $" + pathCost5 + "\n");
 
                                 ArrayList<String> timeAndCost = new ArrayList<>();
                                 timeAndCost.add("Mode: " + mode1 + "\nTime: " + pathTime1 + " mins" + "\nCost: $" + pathCost1);
@@ -504,13 +504,13 @@ public class BruteForce {
                                     double totalCost = pathCost1 + pathCost2 + pathCost3 + pathCost4 + pathCost5 + pathCost6;
                                     int totalTime = pathTime1 + pathTime2 + pathTime3 + pathTime4 + pathTime5 + pathTime6;
 
-                                    String appPrint = ("Total Time: " + totalTime + "mins, Total Cost: $" + totalCost + "\n"
-                                            + startPoint + " to "+ point1 + ": "+ mode1 + ", " + pathTime1 + " mins, $" + pathCost1 +  "\n"
-                                            + point1 + " to " + point2 + ": " + mode2 + ", " + pathTime2 + " mins, $" + pathCost2 + "\n"
-                                            + point2 + " to " + point3 + ": " + mode3 + ", " + pathTime3 + " mins, $" + pathCost3 + "\n"
-                                            + point3 + " to " + point4 + ": " + mode4 + ", " + pathTime4 + " mins, $" + pathCost4 + "\n"
-                                            + point4 + " to " + point5 + ": " + mode5 + ", " + pathTime5 + " mins, $" + pathCost5 + "\n"
-                                            + point5 + " to " + point6 + ": " + mode6 + ", " + pathTime6 + " mins, $" + pathCost6 + "\n");
+                                    String appPrint = ("Total Time: " + totalTime + "mins           Total Cost: $" + totalCost + "\n"
+                                            + startPoint + " to "+ point1 + " ("+ mode1 + ", " + pathTime1 + " mins): $" + pathCost1 +  "\n"
+                                            + point1 + " to " + point2 + " (" + mode2 + ", " + pathTime2 + " mins): $" + pathCost2 + "\n"
+                                            + point2 + " to " + point3 + " (" + mode3 + ", " + pathTime3 + " mins): $" + pathCost3 + "\n"
+                                            + point3 + " to " + point4 + " (" + mode4 + ", " + pathTime4 + " mins): $" + pathCost4 + "\n"
+                                            + point4 + " to " + point5 + " (" + mode5 + ", " + pathTime5 + " mins): $" + pathCost5 + "\n"
+                                            + point5 + " to " + point6 + " (" + mode6 + ", " + pathTime6 + " mins): $" + pathCost6 + "\n");
 
                                     if (totalCost <= budget){
                                         TripObject tripObject = new TripObject(trip,totalTime,totalCost,appPrint);
